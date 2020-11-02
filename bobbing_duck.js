@@ -12,7 +12,7 @@ var i = 0;
 var main = 0;
 var bobSpeed = 1;
 var bob = bobSpeed;
-var bobLength = 60;
+var bobLength = 20;
 bobLength *= 1/2;
 var duckFootSize = 15;
 var duckToeWidth = duckFootSize*1;
@@ -57,8 +57,9 @@ draw = function() {
         bob *= -1;
     }
     
-    bodyY += bob;
-    
+    bodyY = duckStartPositionY + sin(frameCount)*4*bobLength;
+    //thanks to a contribution by Khan Academy user Bluish for the base function I used to get this to work.
+
     //main shapes
     fill(240, 209, 36);
     ellipse(bodyX, bodyY, bodyW, bodyH); // body
