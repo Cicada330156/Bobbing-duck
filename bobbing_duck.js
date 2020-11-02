@@ -12,7 +12,7 @@ var i = 0;
 var main = 0;
 var bobSpeed = 1;
 var bob = bobSpeed;
-var bobLength = 150;
+var bobLength = 60;
 bobLength *= 1/2;
 var duckFootSize = 15;
 var duckToeWidth = duckFootSize*1;
@@ -55,18 +55,6 @@ draw = function() {
         bob *= -1;
     } else if ((bodyY-duckStartPositionY)>bobLength) {
         bob *= -1;
-    }
-    
-    /*if (bodyY-duckStartPositionY) {
-        if (bob<0) {
-            bob = -bob / Math.abs(bodyY-duckStartPositionY);
-        } else if (bob>0) {
-            bob = bob / Math.abs(bodyY-duckStartPositionY);
-        }
-    }*/
-    if (Math.abs(bodyY-duckStartPositionY) !== 0) {
-        bob *= Math.abs(bodyY-duckStartPositionY)/bobLength;
-        //if adding or subtracting instead of multiplying, makes a sketch bounce animation
     }
     
     bodyY += bob;
