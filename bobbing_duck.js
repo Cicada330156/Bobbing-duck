@@ -10,8 +10,6 @@ var waveLocationsX = [50, 300, 200, 380, 200, 60, -30,/*<-positives:::negatives 
 var waveLocationsY = [50, 90, 20, 246, 350, 275, 180,/*<-positives:::negatives ->*/ 50, 300, 200, 380, 200, 60, 30];
 var i = 0;
 var main = 0;
-var bobSpeed = 1;
-var bob = bobSpeed;
 var bobLength = 20;
 bobLength *= 1/2;
 var duckFootSize = 15;
@@ -51,12 +49,6 @@ draw = function() {
     noStroke();
     
     //bob
-    if ((bodyY-duckStartPositionY)<-bobLength) {
-        bob *= -1;
-    } else if ((bodyY-duckStartPositionY)>bobLength) {
-        bob *= -1;
-    }
-    
     bodyY = duckStartPositionY + sin(frameCount)*4*bobLength;
     //thanks to a contribution by Khan Academy user Bluish for the base function I used to get this to work.
 
