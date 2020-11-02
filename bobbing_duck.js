@@ -10,8 +10,7 @@ var waveLocationsX = [50, 300, 200, 380, 200, 60, -30,/*<-positives:::negatives 
 var waveLocationsY = [50, 90, 20, 246, 350, 275, 180,/*<-positives:::negatives ->*/ 50, 300, 200, 380, 200, 60, 30];
 var i = 0;
 var main = 0;
-var bobLength = 20;
-bobLength *= 1/2;
+var bobLength = 40;
 var duckFootSize = 15;
 var duckToeWidth = duckFootSize*1;
 var duckToeHeight = duckFootSize*1.5;
@@ -49,7 +48,7 @@ draw = function() {
     noStroke();
     
     //bob
-    bodyY = duckStartPositionY + sin(frameCount)*4*bobLength;
+    bodyY = duckStartPositionY + sin(frameCount)*bobLength;
     //thanks to a contribution by Khan Academy user Bluish for the base function I used to get this to work.
 
     //main shapes
