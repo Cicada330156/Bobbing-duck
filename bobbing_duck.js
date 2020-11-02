@@ -10,10 +10,7 @@ var waveLocationsX = [50, 300, 200, 380, 200, 60, -30,/*<-positives:::negatives 
 var waveLocationsY = [50, 90, 20, 246, 350, 275, 180,/*<-positives:::negatives ->*/ 50, 300, 200, 380, 200, 60, 30];
 var i = 0;
 var main = 0;
-var bobSpeed = 1;
-var bob = bobSpeed;
-var bobLength = 60;
-bobLength *= 1/2;
+var bobLength = 40;//is a relative value, not an actual measurement of the length from peak to trough
 var duckFootSize = 15;
 var duckToeWidth = duckFootSize*1;
 var duckToeHeight = duckFootSize*1.5;
@@ -51,14 +48,9 @@ draw = function() {
     noStroke();
     
     //bob
-    if ((bodyY-duckStartPositionY)<-bobLength) {
-        bob *= -1;
-    } else if ((bodyY-duckStartPositionY)>bobLength) {
-        bob *= -1;
-    }
-    
-    bodyY += bob;
-    
+    bodyY = duckStartPositionY + sin(frameCount)*bobLength;
+    //thanks to a contribution by Khan Academy user Bluish for the base function I used to get this to work.
+
     //main shapes
     fill(240, 209, 36);
     ellipse(bodyX, bodyY, bodyW, bodyH); // body
